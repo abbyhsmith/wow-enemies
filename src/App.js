@@ -1,5 +1,9 @@
 import './App.scss';
 import {useEffect, useState} from 'react'
+import Head from './components/Head.js'
+import InputBar from './components/InputBar.js'
+import ResultsDiv from './components/ResultsDiv'
+import Footer from './components/Footer.js'
 
 function App() {
 	const [creatureData, setCreatureData] = useState([])
@@ -38,18 +42,10 @@ function App() {
 
 	return (
 		<div className="App">
-			<input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-			<div className="resultsDiv">
-				{
-					creatureData.map((creature) => {
-						return (
-							<div>
-								{creature.data.name.en_US}
-							</div>
-						)
-					})
-				}
-			</div>
+			<Head />
+			<InputBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+			<ResultsDiv creatureData={creatureData} />
+			<Footer />
 		</div>
 	);
 }

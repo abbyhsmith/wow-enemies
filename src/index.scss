@@ -1,5 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@400;800&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: Helvetica;
+	color: white;
+	text-align: center;
+}
+
+body {
+	background-color: rgb(40,40,40);
+}
+
+.head {
+	margin-top: 2%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	img {
+		width: 45%;
+	}
+	h1 {
+		font-family: 'Big Shoulders Stencil Display', 'cursive';
+		font-size: 70px;
+	}
+}
+
+.inputDiv {
+	display: flex;
+	justify-content: center;
+	margin-top: 5%;
+}
+
+input {
+	width: 32%;
+	height: 40px;
+	color: black;
+	border: 3px solid grey;
+}
+
+.resultsDiv {
+	width: 85%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	flex-basis: 20%;
+	border: 3px double grey;
+	max-width: 1200px;
+	margin: 30px auto;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 20px;
 }
