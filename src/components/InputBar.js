@@ -1,9 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const InputBar = ({setSearchTerm, searchTerm}) => {
+const InputBar = ({searchCreatures}) => {
+	const [searchTerm, setSearchTerm] = useState('')
+	
+	const handleSubmit = () => {
+		searchCreatures(searchTerm)
+	}
+
 	return (
 		<div className="inputDiv">
 			<input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Enter enemy name" />
+			<button type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
 		</div>
 	)
 }

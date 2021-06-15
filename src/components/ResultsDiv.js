@@ -1,10 +1,10 @@
 import React from 'react'
 import EnemyBox from './EnemyBox.js'
 
-const ResultsDiv = ({creatureData}) => {
+const ResultsDiv = ({creatureData, resultsClasses}) => {
 	return (
 		<div className="resultsDiv">
-			<EnemyBox creatureData={creatureData} />
+			<EnemyBox creatureData={creatureData} className={resultsClasses} />
 		</div>
 	)
 }

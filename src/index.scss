@@ -7,8 +7,10 @@
 	font-family: Helvetica;
 	color: white;
 	text-align: center;
+	font-size: 16px;
 }
 
+//page styles
 body {
 	background-color: rgb(40,40,40);
 }
@@ -21,13 +23,17 @@ body {
 	align-items: center;
 	img {
 		width: 45%;
-	}
-	h1 {
-		font-family: 'Big Shoulders Stencil Display', 'cursive';
-		font-size: 70px;
+		max-width: 500px;
 	}
 }
 
+h1 {
+	font-family: 'Big Shoulders Stencil Display', 'cursive';
+	font-size: 60px;
+	color: limegreen;
+}
+
+//input
 .inputDiv {
 	display: flex;
 	justify-content: center;
@@ -35,26 +41,103 @@ body {
 }
 
 input {
-	width: 32%;
+	width: 25%;
 	height: 40px;
 	color: black;
-	border: 3px solid grey;
+	text-align: left;
+	padding: 5px;
 }
 
+button {
+	margin-left: 4px;
+	width: 7%;
+	background-color: black;
+	border: 0;
+	border-radius: 6px;
+	height: 40px;
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+//results
 .resultsDiv {
+	border: 2px solid grey;
+	max-width: 1200px;
 	width: 85%;
+	margin: 30px auto;
+	padding: 10px;
+}
+
+.enemy {
+	display: grid;
+	grid-template-columns: (1fr 1fr 1fr 1fr);
+}
+
+.enemyBox {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
-	flex-basis: 20%;
-	border: 3px double grey;
-	max-width: 1200px;
-	margin: 30px auto;
+	flex-direction: column;
+	padding: 10px;
+	margin: 4px;
+	border: 2px solid grey;
+	line-height: 1.5em;
+	img {
+		width: 100%;
+		margin-bottom: 10px;
+	}
 }
 
-footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	padding: 20px;
+@media only screen and (max-width: 1200px) {
+	.enemy {
+		grid-template-columns: (1fr 1fr 1fr);
+	}
+}
+
+@media only screen and (max-width: 850px) {
+	.enemy {
+		grid-template-columns: (1fr 1fr);
+	}
+
+	input {
+		width: 40%;
+	}
+
+	button {
+		width: 10%;
+	}
+
+	h1 {
+		font-size: 48px;
+	}
+
+	.head {
+		img {
+			width: 50%;
+		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.enemy {
+		grid-template-columns: 1fr;
+	}
+
+	input {
+		width: 60%;
+	}
+
+	button {
+		width: 18%;
+	}
+
+	h1 {
+		font-size: 36px;
+	}
+
+	.head {
+		img {
+			width: 70%;
+		}
+	}
 }
