@@ -88,6 +88,7 @@ button {
 	}
 }
 
+//media queries
 @media only screen and (max-width: 1200px) {
 	.enemy {
 		grid-template-columns: (1fr 1fr 1fr);

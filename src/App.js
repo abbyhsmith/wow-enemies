@@ -1,12 +1,10 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import Head from './components/Head.js'
 import InputBar from './components/InputBar.js'
 import ResultsDiv from './components/ResultsDiv.js'
-import classNames from 'classnames'
 
 function App() {
 	const [creatureData, setCreatureData] = useState([])
-	const [filled, setFilled] = useState(false)
 
 	const searchCreatures = (creature) => {
 			fetch(
@@ -19,7 +17,7 @@ function App() {
 					if (creatureDataResponse.results.length > 0) {
 						const creatures = creatureDataResponse.results
 
-						creatures.map((creature) => {
+						const creatureFamilyRequests = creatures.map((creature) => {
 							const creatureFamilyId = creature.data.id
 
 							return fetch(
@@ -60,37 +58,18 @@ function App() {
 								})
 								setCreatureData(creatures)
 							})
-						
+							
+							setTimeout(creatureFamilyRequests, 1000)
+							setTimeout(creatureImageRequests, 1000)
 					}
 				})
 	}
-
-	console.log(creatureData)
-
-	const handleFilled = () => {
-		if (creatureData.length > 0) {
-			setFilled(true)
-		} else {
-			setFilled(false)
-		}
-	}
-
-	useEffect(() => {
-		window.addEventListener('load', handleFilled)
-		return () => {
-			window.removeEventListener('load', handleFilled)
-		}
-	})
-
-	const resultsClasses = classNames({
-		'resultsFilled': filled
-	})
 
 	return (
 		<div className="App">
 			<Head />
 			<InputBar searchCreatures={searchCreatures} />
-			<ResultsDiv creatureData={creatureData} className={resultsClasses} />
+			{Boolean(creatureData.length > 0) && <ResultsDiv creatureData={creatureData} /> }
 		</div>
 	);
 }
